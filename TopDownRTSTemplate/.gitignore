@@ -1,0 +1,18 @@
+# Einzelne Datei ignorieren
+#meine_datei.txt
+
+# Ein ganzes Verzeichnis ignorieren
+Binaries/
+Interfaces/
+Document/
+Content/
+.idea/
+.vs/
+
+
+# Alle .log Dateien ignorieren
+#*.log
+
+# Temporäre Dateien ignorieren
+#*.tmp
+#*.temp
