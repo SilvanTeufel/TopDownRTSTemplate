@@ -32,7 +32,7 @@ Please note the following terms:
 
 * Users are not permitted to sell this code directly as a standalone plugin.
 * Modify the plugin's code for their personal use or within their games, but not sell the modified code as a standalone plugin.
-* By obtaining the plugin (from this repository or other means), users are granted the rights to:
+* By obtaining the plugin (buying the Plugin from UE-Marketplace), users are granted the rights to:
 * Integrate it into their games and sell those games.
 * Modify the plugin's code for their personal use or within their games, and sell this Games.
 
