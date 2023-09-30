@@ -1,19 +1,6 @@
 Mozilla Public License
 Version 2.0
 
-Custom Usage Terms for [TopDownRTSTemplate - A Unreal Engine Plugin]
--------------------------------------------
-
-- Users are not permitted to sell the software/code from this repository directly as a standalone plugin.
-- Users are not permitted to sell the modified software/code from this repository directly as a standalone plugin.
-
-- By obtaining the plugin (from this repository or other means), users are granted the rights to:
-  a. Integrate it into their games and sell those games.
-  b. Modify the plugin's code for their personal use or within their games. However, they are not permitted to sell the modified code as a standalone plugin.
-
-**Please read on for the full licensing terms under the Mozilla Public License 2.0 (MPL 2.0).**
-
-
 1. Definitions
 1.1. “Contributor”
 means each individual or legal entity that creates, contributes to the creation of, or owns Covered Software.

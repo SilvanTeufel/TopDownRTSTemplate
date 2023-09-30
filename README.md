@@ -22,7 +22,7 @@ Remember, if you purchase the plugin from the Epic Games Store, it already inclu
 
 ## Documentation
 
-For a detailed understanding of the classes, refer to the documentation available at [wiki.teufel-engineering.com](http://wiki.teufel-engineering.com). I aim to keep the documentation updated regularly.
+For a detailed understanding of the classes, refer to the documentation available at [wiki.teufel-engineering.com](http://wiki.teufel-engineering.com). I am trying to keep the documentation updated regularly.
 
 ## License
 
@@ -31,13 +31,14 @@ This code is provided under the Mozilla Public License 2.0 (MPL 2.0).
 Please note the following terms:
 
 * Users are not permitted to sell this code directly as a standalone plugin.
+* Modify the plugin's code for their personal use or within their games, but not sell the modified code as a standalone plugin.
 * By obtaining the plugin (from this repository or other means), users are granted the rights to:
 * Integrate it into their games and sell those games.
-* Modify the plugin's code for their personal use or within their games, but not sell the modified code as a standalone plugin.
+* Modify the plugin's code for their personal use or within their games, and sell this Games.
 
 However, I provide no guarantees or warranties for the games developed using this plugin. Use at your own discretion.
 
-You can view the full license terms in the LICENSE file. Remember to create a separate LICENSE file with the full text of the MPL 2.0, and place it in the root of your repository.
+**Please read on for the full licensing terms under the Mozilla Public License 2.0 (MPL 2.0). Or see the LICENSE file.**
 
 ---
 
