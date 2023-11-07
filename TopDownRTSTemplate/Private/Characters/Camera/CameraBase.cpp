@@ -41,40 +41,43 @@ ACameraBase::ACameraBase(const FObjectInitializer& ObjectInitializer) :Super(Obj
 	LoadingWidgetComp = ObjectInitializer.CreateDefaultSubobject<UWidgetComponent>(this, TEXT("LoadingWidgetComp"));
 	LoadingWidgetComp->AttachToComponent(RootScene, FAttachmentTransformRules::KeepRelativeTransform);
 
-	GetCameraBaseCapsule()->AttachToComponent(RootScene, FAttachmentTransformRules::KeepRelativeTransform);
-	GetCameraBaseCapsule()->BodyInstance.bLockXRotation = true;
-	GetCameraBaseCapsule()->BodyInstance.bLockYRotation = true;
-	GetCameraBaseCapsule()->BodyInstance.bLockZRotation = true;
-
-/**/
-	GetMesh()->AttachToComponent(GetCameraBaseCapsule(), FAttachmentTransformRules::KeepRelativeTransform);
-
-	UCapsuleComponent* CComponent = GetCapsuleComponent();
-	if (CComponent)
+	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
-		CComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);  // Enable both physics and overlap query
-		CComponent->SetCollisionResponseToAllChannels(ECR_Ignore);  // Start by ignoring all channels
-		CComponent->SetCollisionResponseToChannel(ECC_PhysicsBody, ECR_Ignore);
-		CComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);  // Block other pawns (this can be adjusted based on your requirements)
-		CComponent->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);  // Important: Block WorldStatic so it can walk on static objects like ground, walls, etc.
-		CComponent->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Ignore);  // ECR_Overlap Overlap with dynamic objects (adjust as needed)
+        //GetCameraBaseCapsule()->AttachToComponent(RootScene, FAttachmentTransformRules::KeepRelativeTransform);
+        GetCameraBaseCapsule()->BodyInstance.bLockXRotation = true;
+        GetCameraBaseCapsule()->BodyInstance.bLockYRotation = true;
+        GetCameraBaseCapsule()->BodyInstance.bLockZRotation = true;
+    
+    /**/
+        GetMesh()->AttachToComponent(GetCameraBaseCapsule(), FAttachmentTransformRules::KeepRelativeTransform);
+    
+        UCapsuleComponent* CComponent = GetCapsuleComponent();
+        if (CComponent)
+        {
+            CComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);  // Enable both physics and overlap query
+            CComponent->SetCollisionResponseToAllChannels(ECR_Ignore);  // Start by ignoring all channels
+            CComponent->SetCollisionResponseToChannel(ECC_PhysicsBody, ECR_Ignore);
+            CComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);  // Block other pawns (this can be adjusted based on your requirements)
+            CComponent->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);  // Important: Block WorldStatic so it can walk on static objects like ground, walls, etc.
+            CComponent->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Ignore);  // ECR_Overlap Overlap with dynamic objects (adjust as needed)
+        }
+    
+        
+        UMeshComponent* CMesh = GetMesh();
+        if(CMesh)
+        {
+        
+            CMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);  // Typically, we use the capsule for physics and mesh for simple queries like overlap
+            CMesh->SetCollisionResponseToAllChannels(ECR_Ignore);  // Start by ignoring all channels
+            CMesh->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);  // Overlap with other pawns
+            CMesh->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Ignore);  // Overlap with dynamic objects
+        }
+    
+        GetCapsuleComponent()->SetEnableGravity(true);
+        GetCapsuleComponent()->SetSimulatePhysics(true);
+        GetCapsuleComponent()->SetMassOverrideInKg(NAME_None, 75.0f, true);
+        GetCapsuleComponent()->SetCollisionProfileName(TEXT("Pawn"));
 	}
-
-	
-	UMeshComponent* CMesh = GetMesh();
-	if(CMesh)
-	{
-	
-		CMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);  // Typically, we use the capsule for physics and mesh for simple queries like overlap
-		CMesh->SetCollisionResponseToAllChannels(ECR_Ignore);  // Start by ignoring all channels
-		CMesh->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);  // Overlap with other pawns
-		CMesh->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Ignore);  // Overlap with dynamic objects
-	}
-
-	GetCapsuleComponent()->SetEnableGravity(true);
-	GetCapsuleComponent()->SetSimulatePhysics(true);
-	GetCapsuleComponent()->SetMassOverrideInKg(NAME_None, 75.0f, true);
-	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Pawn"));
 }
 
 void ACameraBase::SetActorBasicLocation()
