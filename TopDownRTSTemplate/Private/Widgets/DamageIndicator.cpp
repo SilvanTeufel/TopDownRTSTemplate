@@ -3,8 +3,8 @@
 
 #include "Widgets/DamageIndicator.h"
 #include "Characters/Unit/UnitBase.h"
-//#include "Fonts/FontFaceInterface.h"
-//#include "SlateCore.h"
+#include "Misc/Paths.h" // Include for FPaths
+#include "Fonts/SlateFontInfo.h" // Include for FSlateFontInfo
 
 
 void UDamageIndicator::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)

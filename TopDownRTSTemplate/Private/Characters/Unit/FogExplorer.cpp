@@ -3,6 +3,8 @@
 
 #include "Characters/Unit/FogExplorer.h"
 #include "Perception/AIPerceptionComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
 #include "Actors/FogOfWar.h"
 
 void AFogExplorer::Tick(float DeltaTime)

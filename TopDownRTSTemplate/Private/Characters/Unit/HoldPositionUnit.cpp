@@ -2,6 +2,8 @@
 
 
 #include "Characters/Unit/HoldPositionUnit.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
 
 
 

@@ -25,9 +25,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "CheckSpeakingUnits", Keywords = "TopDownRTSCamLib CheckSpeakingUnits"), Category = RTSUnitTemplate)
 	bool CheckSpeakingUnits();
-
-	UFUNCTION(BlueprintCallable, Category = TopDownRTSCamLib)
-	void SetResolutionTick(int x);
 	
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "GetViewPortScreenSizes", Keywords = "TopDownRTSCamLib GetViewPortScreenSizes"), Category = TopDownRTSCamLib)
 	void GetViewPortScreenSizes(int x);

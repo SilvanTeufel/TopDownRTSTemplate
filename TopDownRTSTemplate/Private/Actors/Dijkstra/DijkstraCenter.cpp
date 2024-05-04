@@ -1,6 +1,8 @@
 // Copyright 2023 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 
 #include "Actors/Dijkstra/DijkstraCenter.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "Components/CapsuleComponent.h"
 
 // Sets default values

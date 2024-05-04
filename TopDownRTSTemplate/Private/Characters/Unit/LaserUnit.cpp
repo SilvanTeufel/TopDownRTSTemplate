@@ -3,7 +3,10 @@
 
 #include "Characters/Unit/LaserUnit.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
 #include "Math/Vector.h"
+
 // Called when the game starts or when spawned
 void ALaserUnit::BeginPlay()
 {

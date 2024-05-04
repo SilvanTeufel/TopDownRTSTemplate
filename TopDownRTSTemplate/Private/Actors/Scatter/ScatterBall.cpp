@@ -5,6 +5,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Characters/Unit/UnitBase.h"
 #include "Characters/Unit/ExtendedUnitBase.h"
+#include "Engine/StaticMesh.h"
 #include "UObject/ConstructorHelpers.h"
 //#include "Characters/ExtendedUnitBase.h"
 

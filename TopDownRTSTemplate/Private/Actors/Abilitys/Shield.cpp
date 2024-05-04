@@ -4,6 +4,7 @@
 #include "Actors/Abilitys/Shield.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Engine/StaticMesh.h"
 
 // Sets default values
 AShield::AShield()
@@ -14,6 +15,7 @@ AShield::AShield()
     //SphereMesh->SetupAttachment(RootComponent);
     SetRootComponent(SphereMesh);
     static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereMeshAsset(TEXT("/Engine/BasicShapes/Sphere"));
+    
     if (SphereMeshAsset.Succeeded())
     {
         SphereMesh->SetStaticMesh(SphereMeshAsset.Object);

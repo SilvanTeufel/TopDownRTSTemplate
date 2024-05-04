@@ -5,6 +5,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Actors/SelectedIcon.h"
 #include "Components/SceneComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMesh.h"
 #include "Actors/Weapon/WeaponBase.h"
 
 // AExtendedUnitBase constructor

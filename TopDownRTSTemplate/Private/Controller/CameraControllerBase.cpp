@@ -1,10 +1,12 @@
 // Copyright 2022 Silvan Teufel / Teufel-Engineering.com All Rights Reserved.
 #include "Controller/CameraControllerBase.h"
 
-
+#include "Engine/GameViewportClient.h" // Include the header for UGameViewportClient
+#include "Engine/Engine.h"     
 #include "Application/SlateApplicationBase.h"
 #include "Widgets/SWindow.h"
 #include "GenericPlatform/GenericWindow.h"
+#include "UnrealClient.h"
 
 ACameraControllerBase::ACameraControllerBase()
 {
@@ -58,20 +60,6 @@ bool ACameraControllerBase::CheckSpeakingUnits()
 	return false;
 }
 
-void ACameraControllerBase::SetResolutionTick(int x)
-{
-	switch (x)
-	{
-	case 2:
-		{
-		
-			ExtendedCameraBase->ScreenSizeX = GSystemResolution.ResX;
-			ExtendedCameraBase->ScreenSizeY = GSystemResolution.ResY;
-		}
-		break;
-	}
-}
-
 void ACameraControllerBase::GetViewPortScreenSizes(int x)
 {
 	switch (x)
@@ -82,10 +70,12 @@ void ACameraControllerBase::GetViewPortScreenSizes(int x)
 		}
 		break;
 	case 2:
+		if (GEngine && GEngine->GameViewport)
 		{
-		
-			ExtendedCameraBase->ScreenSizeX = GSystemResolution.ResX;
-			ExtendedCameraBase->ScreenSizeY = GSystemResolution.ResY;
+			FViewport* Viewport = GEngine->GameViewport->Viewport;
+			FIntPoint Size = Viewport->GetSizeXY();
+			ExtendedCameraBase->ScreenSizeX = Size.X;
+			ExtendedCameraBase->ScreenSizeY = Size.Y;
 		}
 		break;
 	}
